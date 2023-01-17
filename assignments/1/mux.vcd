@@ -1,0 +1,199 @@
+$date
+	Sun Jan 15 00:29:05 2023
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	1ns
+$end
+$scope module mux_tb $end
+$var wire 32 ! cout [31:0] $end
+$var reg 32 " cin1 [31:0] $end
+$var reg 32 # cin2 [31:0] $end
+$var reg 32 $ cin3 [31:0] $end
+$var reg 32 % cin4 [31:0] $end
+$var reg 1 & switch1 $end
+$var reg 1 ' switch2 $end
+$scope module uut $end
+$var wire 32 ( cin1 [31:0] $end
+$var wire 32 ) cin2 [31:0] $end
+$var wire 32 * cin3 [31:0] $end
+$var wire 32 + cin4 [31:0] $end
+$var wire 1 & switch1 $end
+$var wire 1 ' switch2 $end
+$var wire 1 , temp1 $end
+$var wire 1 - temp2 $end
+$var wire 1 . temp3 $end
+$var wire 1 / temp4 $end
+$var wire 32 0 mid4 [31:0] $end
+$var wire 32 1 mid3 [31:0] $end
+$var wire 32 2 mid2 [31:0] $end
+$var wire 32 3 mid1 [31:0] $end
+$var wire 32 4 cout [31:0] $end
+$scope begin genblk1[0] $end
+$var parameter 2 5 i $end
+$upscope $end
+$scope begin genblk1[1] $end
+$var parameter 2 6 i $end
+$upscope $end
+$scope begin genblk1[2] $end
+$var parameter 3 7 i $end
+$upscope $end
+$scope begin genblk1[3] $end
+$var parameter 3 8 i $end
+$upscope $end
+$scope begin genblk1[4] $end
+$var parameter 4 9 i $end
+$upscope $end
+$scope begin genblk1[5] $end
+$var parameter 4 : i $end
+$upscope $end
+$scope begin genblk1[6] $end
+$var parameter 4 ; i $end
+$upscope $end
+$scope begin genblk1[7] $end
+$var parameter 4 < i $end
+$upscope $end
+$scope begin genblk1[8] $end
+$var parameter 5 = i $end
+$upscope $end
+$scope begin genblk1[9] $end
+$var parameter 5 > i $end
+$upscope $end
+$scope begin genblk1[10] $end
+$var parameter 5 ? i $end
+$upscope $end
+$scope begin genblk1[11] $end
+$var parameter 5 @ i $end
+$upscope $end
+$scope begin genblk1[12] $end
+$var parameter 5 A i $end
+$upscope $end
+$scope begin genblk1[13] $end
+$var parameter 5 B i $end
+$upscope $end
+$scope begin genblk1[14] $end
+$var parameter 5 C i $end
+$upscope $end
+$scope begin genblk1[15] $end
+$var parameter 5 D i $end
+$upscope $end
+$scope begin genblk1[16] $end
+$var parameter 6 E i $end
+$upscope $end
+$scope begin genblk1[17] $end
+$var parameter 6 F i $end
+$upscope $end
+$scope begin genblk1[18] $end
+$var parameter 6 G i $end
+$upscope $end
+$scope begin genblk1[19] $end
+$var parameter 6 H i $end
+$upscope $end
+$scope begin genblk1[20] $end
+$var parameter 6 I i $end
+$upscope $end
+$scope begin genblk1[21] $end
+$var parameter 6 J i $end
+$upscope $end
+$scope begin genblk1[22] $end
+$var parameter 6 K i $end
+$upscope $end
+$scope begin genblk1[23] $end
+$var parameter 6 L i $end
+$upscope $end
+$scope begin genblk1[24] $end
+$var parameter 6 M i $end
+$upscope $end
+$scope begin genblk1[25] $end
+$var parameter 6 N i $end
+$upscope $end
+$scope begin genblk1[26] $end
+$var parameter 6 O i $end
+$upscope $end
+$scope begin genblk1[27] $end
+$var parameter 6 P i $end
+$upscope $end
+$scope begin genblk1[28] $end
+$var parameter 6 Q i $end
+$upscope $end
+$scope begin genblk1[29] $end
+$var parameter 6 R i $end
+$upscope $end
+$scope begin genblk1[30] $end
+$var parameter 6 S i $end
+$upscope $end
+$scope begin genblk1[31] $end
+$var parameter 6 T i $end
+$upscope $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+$comment Show the parameter values. $end
+$dumpall
+b11111 T
+b11110 S
+b11101 R
+b11100 Q
+b11011 P
+b11010 O
+b11001 N
+b11000 M
+b10111 L
+b10110 K
+b10101 J
+b10100 I
+b10011 H
+b10010 G
+b10001 F
+b10000 E
+b1111 D
+b1110 C
+b1101 B
+b1100 A
+b1011 @
+b1010 ?
+b1001 >
+b1000 =
+b111 <
+b110 ;
+b101 :
+b100 9
+b11 8
+b10 7
+b1 6
+b0 5
+$end
+#0
+$dumpvars
+b1100 4
+b1100 3
+b0 2
+b0 1
+b0 0
+0/
+0.
+0-
+1,
+b100010 +
+b1110 *
+b1110001 )
+b1100 (
+1'
+1&
+b100010 %
+b1110 $
+b1110001 #
+b1100 "
+b1100 !
+$end
+#5
+b1110 !
+b1110 4
+b1110 1
+b0 3
+1.
+0,
+0&
+#10

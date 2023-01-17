@@ -1,0 +1,39 @@
+$date
+	Sat Jan 14 23:11:31 2023
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	1ns
+$end
+$scope module op_de_tb $end
+$var wire 8 ! cout [7:0] $end
+$var reg 3 " cin [2:0] $end
+$scope module uut $end
+$var wire 3 # cin [2:0] $end
+$var wire 8 $ cout [7:0] $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+$comment Show the parameter values. $end
+$dumpall
+$end
+#0
+$dumpvars
+b10 $
+b101 #
+b101 "
+b10 !
+$end
+#5
+b10000000 !
+b10000000 $
+b111 "
+b111 #
+#10
+b1 !
+b1 $
+b110 "
+b110 #
+#15

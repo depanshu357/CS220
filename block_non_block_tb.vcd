@@ -1,0 +1,54 @@
+$date
+	Fri Jan 13 15:42:46 2023
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	1s
+$end
+$scope module block_non_block_tb $end
+$var wire 1 ! t_g $end
+$var reg 1 " t_a $end
+$var reg 1 # t_b $end
+$var reg 1 $ t_c $end
+$var reg 1 % t_d $end
+$var reg 1 & t_e $end
+$var reg 1 ' t_f $end
+$scope module mygate $end
+$var wire 1 " a $end
+$var wire 1 # b $end
+$var wire 1 $ c $end
+$var wire 1 % d $end
+$var wire 1 & e $end
+$var wire 1 ' f $end
+$var wire 1 ! g $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+$comment Show the parameter values. $end
+$dumpall
+$end
+#0
+$dumpvars
+0'
+0&
+0%
+0$
+0#
+0"
+0!
+$end
+#5
+1!
+1#
+#10
+1$
+0#
+#15
+1%
+0$
+#20
+1'
+0%
+#25
