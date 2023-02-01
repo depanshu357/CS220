@@ -1,16 +1,17 @@
 `timescale 1ns/1ns
 `include "full_adder.v"
 
-module ripple_crry_adder(a,b,cin,cout,sum);
+module ripple_crry_adder(clk,a,b,cin,cout,sum);
     parameter MaxSize = 128;
     input [MaxSize-1:0] a,b;
     input cin;
+    input clk;
     output reg cout;
     output reg [MaxSize-1:0]sum;
     wire [MaxSize:0] temp;
     wire temp_cout;
     wire [MaxSize-1:0] temp_sum;
-    always @(*) begin
+    always @(posedge clk) begin
         sum <= temp_sum;
         cout <= temp_cout;
     end

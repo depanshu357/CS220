@@ -2,7 +2,7 @@
 `include "full_adder.v"
 
 module b_bit_adder(a,b,cin,kcout,p,sum);
-    parameter W = 8;
+    parameter W = 32;
     input [W-1:0] a,b;
     input cin;
     output kcout;

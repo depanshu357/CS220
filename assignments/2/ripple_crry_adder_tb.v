@@ -7,17 +7,22 @@ module ripple_crry_adder_tb;
     reg cin;
     wire cout;
     wire[MaxSize-1:0] sum;
-    ripple_crry_adder uut(a,b,cin,cout,sum);
+    reg clk;
+    ripple_crry_adder uut(clk,a,b,cin,cout,sum);
+    initial begin
+        clk = 0;
+      forever #10 clk = ~clk;
+    end
     initial begin
         $dumpfile("ripple_crry_adder.vcd");
         $dumpvars(0,ripple_crry_adder_tb);
         $monitor(a," ",b," ",cin," ",cout," ",sum);
-        a = {64{2'b01}};b={64{2'b10}};cin = 0;#5;
-        a = {64{2'b11}};b={64{2'b10}};cin = 0;#5;
-        a = {64{2'b01}};b={64{2'b11}};cin = 0;#5;
-        a = 2134;b=2345;cin = 0;#5;
-        a = 2134;b=4349;cin = 0;#5;
-        a = 2138;b=2346;cin = 0;#5;
+        a = {64{2'b01}};b={64{2'b10}};cin = 0;#22;
+        a = {64{2'b01}};b={64{2'b01}};cin = 0;#22;
+        a = {32{4'b0001}};b={32{4'b0001}};cin = 0;#22;
+        a = 2134;b=2345;cin = 0;#22;
+        a = 2134;b=4349;cin = 0;#22;
+        a = 2138;b=2346;cin = 0;#22;
         $finish;
     end
 endmodule

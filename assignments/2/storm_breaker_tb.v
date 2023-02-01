@@ -8,15 +8,20 @@ module storm_breaker_tb;
     wire p0;
     wire [MaxSize-1:0] sum;
     wire cout;
-    storm_breaker uut(a,b,c0,sum,cout,p0);
+    reg clk;
+    storm_breaker uut(clk,a,b,c0,sum,cout,p0);
+    initial begin
+        clk = 0;
+        forever #10 clk = ~clk;
+    end
     initial begin
         $dumpfile("storm_breaker_tb.vcd");
         $dumpvars(0,storm_breaker_tb);
         $monitor("inputs ",a," ",b," ",c0," outputs ",sum," ",cout," ",p0);
-        a = {64{2'b01}};b = {64{2'b10}};c0 = 0;#5;
-        a = 1234;b = 1345;c0 = 1;#5;
-        a = 1234;b = 1325;c0 = 0;#5;
-        a = 1234;b = 2345;c0 = 1;#5;
+        a = {64{2'b01}};b = {64{2'b10}};c0 = 0;#100;
+        a = 1234;b = 1345;c0 = 1;#100;
+        a = 1234;b = 1325;c0 = 0;#100;
+        a = 1234;b = 2345;c0 = 1;#100;
         $finish;
     end
 
