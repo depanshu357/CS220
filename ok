@@ -1,0 +1,68 @@
+#! /c/Source/iverilog-install/bin/vvp
+:ivl_version "12.0 (devel)" "(s20150603-1539-g2693dd32b)";
+:ivl_delay_selection "TYPICAL";
+:vpi_time_precision + 0;
+:vpi_module "C:\iverilog\lib\ivl\system.vpi";
+:vpi_module "C:\iverilog\lib\ivl\vhdl_sys.vpi";
+:vpi_module "C:\iverilog\lib\ivl\vhdl_textio.vpi";
+:vpi_module "C:\iverilog\lib\ivl\v2005_math.vpi";
+:vpi_module "C:\iverilog\lib\ivl\va_math.vpi";
+S_000001e04d5b9130 .scope module, "block_and_non_block_tb" "block_and_non_block_tb" 2 3;
+ .timescale 0 0;
+v000001e04d5b6770_0 .net "a", 0 0, v000001e04d5b92c0_0;  1 drivers
+v000001e04d5b6810_0 .net "b", 0 0, v000001e04d5bc0d0_0;  1 drivers
+v000001e04d854350_0 .var "c", 0 0;
+S_000001e04d5b6400 .scope module, "uut" "block_and_non_block" 2 6, 3 1 0, S_000001e04d5b9130;
+ .timescale 0 0;
+    .port_info 0 /OUTPUT 1 "a";
+    .port_info 1 /OUTPUT 1 "b";
+    .port_info 2 /INPUT 1 "c";
+v000001e04d5b92c0_0 .var "a", 0 0;
+v000001e04d5bc0d0_0 .var "b", 0 0;
+v000001e04d5b6590_0 .net "c", 0 0, v000001e04d854350_0;  1 drivers
+v000001e04d5b6630_0 .var "c_reg", 0 0;
+v000001e04d5b66d0_0 .var "temp", 0 0;
+E_000001e04d5bcdf0 .event anyedge, v000001e04d5b66d0_0;
+    .scope S_000001e04d5b6400;
+T_0 ;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v000001e04d5b6630_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v000001e04d5b66d0_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v000001e04d5b92c0_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v000001e04d5bc0d0_0, 0, 1;
+    %end;
+    .thread T_0;
+    .scope S_000001e04d5b6400;
+T_1 ;
+    %wait E_000001e04d5bcdf0;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v000001e04d5b66d0_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %assign/vec4 v000001e04d5b6630_0, 0;
+    %load/vec4 v000001e04d5b6630_0;
+    %assign/vec4 v000001e04d5b92c0_0, 0;
+    %load/vec4 v000001e04d5b6630_0;
+    %store/vec4 v000001e04d5bc0d0_0, 0, 1;
+    %vpi_call 3 17 "$display", v000001e04d5b92c0_0, " ", v000001e04d5bc0d0_0, " ", v000001e04d5b6590_0 {0 0 0};
+    %jmp T_1;
+    .thread T_1, $push;
+    .scope S_000001e04d5b9130;
+T_2 ;
+    %vpi_call 2 8 "$dumpfile", "block_and_non_block_tb.vcd" {0 0 0};
+    %vpi_call 2 9 "$dumpvars", 32'sb00000000000000000000000000000000, S_000001e04d5b9130 {0 0 0};
+    %vpi_call 2 10 "$monitor", v000001e04d5b6770_0, " ", v000001e04d5b6810_0, " ", v000001e04d854350_0 {0 0 0};
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v000001e04d854350_0, 0, 1;
+    %delay 5, 0;
+    %vpi_call 2 12 "$display", "test completed" {0 0 0};
+    %end;
+    .thread T_2;
+# The file index is used to find the file name in the following table.
+:file_names 4;
+    "N/A";
+    "<interactive>";
+    ".\block_and_non_block_tb.v";
+    "./block_and_non_block.v";

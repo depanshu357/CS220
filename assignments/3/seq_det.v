@@ -19,7 +19,7 @@ module seq_det(clk,reset,req1,gnt1);
          STATE1: if(req1==1'b0) begin
                 next_state<=STATE2;
                 end
-                else next_state<=IDLE;
+                else next_state<=STATE1;
         STATE2: if(req1==1'b1) begin
                 next_state<=STATE3;
                 end
@@ -27,7 +27,7 @@ module seq_det(clk,reset,req1,gnt1);
         STATE3: if(req1==1'b0) begin
                 next_state<=STATE4;
                 end
-                else next_state<=IDLE;
+                else next_state<=STATE1;
         STATE4: if(req1==1'b1) begin
                 next_state<=STATE3;
                 end

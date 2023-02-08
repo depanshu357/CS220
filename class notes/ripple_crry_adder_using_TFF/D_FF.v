@@ -5,7 +5,7 @@
 // 
 // Create Date:    18:00:08 01/11/2023 
 // Design Name: 
-// Module Name:    DFF 
+// Module Name:    D_FF 
 // Project Name: 
 // Target Devices: 
 // Tool versions: 
@@ -19,7 +19,7 @@
 //
 //////////////////////////////////////////////////////////////////////////////////
 
-module DFF(q,d,clk,reset);
+module D_FF(q,d,clk,reset);
 output q;
 input d, clk,reset;
 reg q; 

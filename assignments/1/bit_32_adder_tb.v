@@ -11,7 +11,7 @@ module bit_32_adder_tb;
         $monitor(a," ",b," ",cout);
         a=2345;
         b=12; 
-               #5;
+          #5;
         a=502;
         b=23;
         #5;

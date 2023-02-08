@@ -1,0 +1,52 @@
+#! /c/Source/iverilog-install/bin/vvp
+:ivl_version "12.0 (devel)" "(s20150603-1539-g2693dd32b)";
+:ivl_delay_selection "TYPICAL";
+:vpi_time_precision + 0;
+:vpi_module "C:\iverilog\lib\ivl\system.vpi";
+:vpi_module "C:\iverilog\lib\ivl\vhdl_sys.vpi";
+:vpi_module "C:\iverilog\lib\ivl\vhdl_textio.vpi";
+:vpi_module "C:\iverilog\lib\ivl\v2005_math.vpi";
+:vpi_module "C:\iverilog\lib\ivl\va_math.vpi";
+S_000002af984067d0 .scope module, "block_and_non_block" "block_and_non_block" 2 1;
+ .timescale 0 0;
+    .port_info 0 /OUTPUT 1 "a";
+    .port_info 1 /OUTPUT 1 "b";
+    .port_info 2 /INPUT 1 "c";
+v000002af984072a0_0 .var "a", 0 0;
+v000002af98406960_0 .var "b", 0 0;
+o000002af98457038 .functor BUFZ 1, C4<z>; HiZ drive
+v000002af98406a00_0 .net "c", 0 0, o000002af98457038;  0 drivers
+v000002af98406aa0_0 .var "c_reg", 0 0;
+v000002af9840ded0_0 .var "temp", 0 0;
+E_000002af98408690 .event anyedge, v000002af9840ded0_0;
+    .scope S_000002af984067d0;
+T_0 ;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v000002af98406aa0_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v000002af9840ded0_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v000002af984072a0_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v000002af98406960_0, 0, 1;
+    %end;
+    .thread T_0;
+    .scope S_000002af984067d0;
+T_1 ;
+    %wait E_000002af98408690;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v000002af9840ded0_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %assign/vec4 v000002af98406aa0_0, 0;
+    %load/vec4 v000002af98406aa0_0;
+    %assign/vec4 v000002af984072a0_0, 0;
+    %load/vec4 v000002af98406aa0_0;
+    %store/vec4 v000002af98406960_0, 0, 1;
+    %vpi_call 2 17 "$display", v000002af984072a0_0, " ", v000002af98406960_0, " ", v000002af98406a00_0 {0 0 0};
+    %jmp T_1;
+    .thread T_1, $push;
+# The file index is used to find the file name in the following table.
+:file_names 3;
+    "N/A";
+    "<interactive>";
+    "block_and_non_block.v";

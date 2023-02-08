@@ -1,11 +1,12 @@
 `timescale 1ns / 1ps
+`include "D_FF.v"
 //////////////////////////////////////////////////////////////////////////////////
 // Company: 
 // Engineer: 
 // 
-// Create Date:    18:00:08 01/11/2023 
+// Create Date:    17:59:25 01/11/2023 
 // Design Name: 
-// Module Name:    DFF 
+// Module Name:    T_FF 
 // Project Name: 
 // Target Devices: 
 // Tool versions: 
@@ -18,17 +19,13 @@
 // Additional Comments: 
 //
 //////////////////////////////////////////////////////////////////////////////////
+module T_FF(q,clk,reset);
 
-module DFF(q,d,clk,reset);
 output q;
-input d, clk,reset;
-reg q; 
+input clk, reset;
+wire d;
 
-always@(posedge reset or negedge clk)
-begin
-	if(reset)
-		q<=1'b0;
-	else
-  		q<=d;
-end
+D_FF dff_0 (q,d,clk,reset);
+not n1(d,q);
+
 endmodule

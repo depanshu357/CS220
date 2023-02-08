@@ -3,9 +3,9 @@
 // Company: 
 // Engineer: 
 // 
-// Create Date:    18:00:08 01/11/2023 
+// Create Date:    13:54:31 01/26/2023 
 // Design Name: 
-// Module Name:    DFF 
+// Module Name:    simple_adder 
 // Project Name: 
 // Target Devices: 
 // Tool versions: 
@@ -18,17 +18,14 @@
 // Additional Comments: 
 //
 //////////////////////////////////////////////////////////////////////////////////
+module simple_adder(a,b, cin,sum,cout);
+parameter W=256;
 
-module DFF(q,d,clk,reset);
-output q;
-input d, clk,reset;
-reg q; 
+input [W-1:0] a,b;
+input cin;
+output [W-1:0] sum;
+output cout;
 
-always@(posedge reset or negedge clk)
-begin
-	if(reset)
-		q<=1'b0;
-	else
-  		q<=d;
-end
+assign {cout,sum}=a+b+cin;
+
 endmodule
