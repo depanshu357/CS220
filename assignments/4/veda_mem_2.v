@@ -17,7 +17,7 @@ module veda_mem_2(clk,rst,we,address_a,address_b,dataIn,Mode,dataOut);
         address_reg <= 0;
     end
     else begin
-        if(Mode) begin
+        if(Mode==0) begin
             if(we) begin
                 ram[address_a] <= dataIn;
                 address_reg <= address_a;
@@ -28,6 +28,7 @@ module veda_mem_2(clk,rst,we,address_a,address_b,dataIn,Mode,dataOut);
             dataOut <= ram[address_b];
         end
         else begin
+            address_reg <= address_b;
             dataOut <= ram[address_reg];
         end
     end

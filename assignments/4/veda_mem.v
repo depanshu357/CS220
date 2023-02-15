@@ -18,10 +18,10 @@ always @(posedge clk)begin : memory
         adderss_reg <=0;
     end
     else begin
-    if(Mode) begin
+    if(Mode == 0) begin
         if(we) begin
-            ram[address] <= dataIn;
             adderss_reg <= address;
+            ram[address] <= dataIn;
         end
         else begin
             adderss_reg <= address;
@@ -29,7 +29,8 @@ always @(posedge clk)begin : memory
         q <= ram[adderss_reg];
         end
         else begin
-        q<= ram[address];
+        adderss_reg <= address;
+        q<= ram[adderss_reg];
     end
     end
    
