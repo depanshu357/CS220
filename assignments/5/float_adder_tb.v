@@ -16,6 +16,7 @@ module float_adder_tb;
         $dumpfile("float_adder_tb.vcd");
         $dumpvars(0,float_adder_tb);
         $monitor("%b %b %b %b",clk,match,given_ans,dataOut);
+        // $monitor(clk," ",match," ",given_ans[22:0]," ",dataOut[22:0]);
 
         #20;
         $display(clk," ",match," ",given_ans," ",dataOut);
