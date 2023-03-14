@@ -1,5 +1,5 @@
 `include "veda_mem.v"
-module float_adder(clk,match,given_ans,dataOut,temp);
+module float_addercopy(clk,match,given_ans,dataOut,temp);
 input clk;
 output reg match;
 output reg [31:0] given_ans;
@@ -10,7 +10,7 @@ reg [7:0] exp1;
 reg [7:0] exp2;
 reg [7:0] diff;
 reg[24:0] num1;reg[24:0] num2;
-reg [24:0] sum; reg [7:0] exp; reg sign;
+reg [24:0] sum; reg [7:0] exp; reg sign;r
 output wire [31:0]temp;
 initial begin
     // dataIn1[31:31] = 1'b0;
@@ -44,7 +44,7 @@ veda_mem uut2(clk,1'b1,1'b0,5'b00001,dataIn2,1'b1,temp);
 veda_mem uut3(clk,1'b1,1'b0,5'b00001,given_ans,1'b1,temp);
 veda_mem uut4(clk,1'b1,1'b0,5'b00001,given_ans,1'b1,temp);
 
-always @(posedge clk) begin
+initial begin
     // $monitor(match," ",ans_given," ",dataOut);
     if(exp1>exp2) begin
         diff = exp1 -exp2;

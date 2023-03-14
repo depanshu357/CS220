@@ -1,9 +1,9 @@
-module veda_mem(clk,rst,we,address,dataIn,Mode,q);
+module veda_mem(clk,rst,we,address,dataIn,Mode,dataOut);
 parameter SIZE = 32;
 input [7:0] dataIn;
 input [4:0] address;
 input clk,rst,we,Mode;
-output reg [7:0] q;
+output reg [7:0] dataOut;
 
 reg [7:0] ram[SIZE-1:0];
 reg [4:0]adderss_reg ;
@@ -14,7 +14,7 @@ always @(posedge clk)begin : memory
         for(i=0;i<32;i++) begin: kuchTohHai
         ram[i] <=0;
         end
-        q<= 0;
+        dataOut<= 0;
         adderss_reg <=0;
     end
     else begin
@@ -26,11 +26,11 @@ always @(posedge clk)begin : memory
         else begin
             adderss_reg <= address;
         end
-        q <= ram[adderss_reg];
+        dataOut <= ram[adderss_reg];
         end
         else begin
         adderss_reg <= address;
-        q<= ram[adderss_reg];
+        dataOut<= ram[adderss_reg];
     end
     end
    
