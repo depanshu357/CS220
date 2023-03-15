@@ -20,13 +20,13 @@ forLoop1: slt $t0, $s0, $s2
          beq $t0,$zero,exit2
 
          # sw $s3,sizes($s0)
-         lw $a0,sizes($s0)
-         li $v0,1
-         syscall
+        # lw $a0,sizes($s0)
+        # li $v0,1
+        # syscall
 
-         li $v0,4
-        la $a0, space
-        syscall
+        # li $v0,4
+        # la $a0, space
+        # syscall
 
          addi $s0,$s0,4
          j forLoop1
@@ -71,25 +71,45 @@ startInsertionSort: move $s0,$zero # i=0
     lw $s3,size4 # 12*12*4
     forLoop3: slt $t0,$s0,$s3
         beq $t0,$zero,exit4
-          InsertionSort:                         
+          InsertionSort:       
+
                         add $s4,$zero,$s0 # s4 = i
                         move $t1,$s0    #t1 = address of bucket[i]
-                        lw $t2,sizes($t1)  # t2 = size
+                        lw $t2,sizes($s1)  # t2 = size
                         mul $t2,$t2,4
-                        addi $t0,$zero,2
+                        addi $t0,$zero,1
                         slt $t0,$t2,$t0
                         bne $t0,$zero,exit5 
                         forLoop4: slt $t0,$s4,$t2
+
                              beq $t0,$zero,exit5
                             addi $s5, $s4, -4  # s5 = i - 1
-                            forLoop5: slt $t0,$s5,$zero
+                            forLoop5:
+
+
+                            slt $t0,$s5,$zero
                                       bne $t0,$zero,exit6
-                                         swap: l.s $f2,buckets($s4) # v[i]
+                                         swap:
+
+
+ 
+
+                                         l.s $f2,buckets($s4) # v[i]
                                             l.s $f4,buckets($s5)  #v[j]
-                                            c.lt.s $f4,$f2
+                                            c.lt.s $f2,$f4
                                             bc1f exit7
+                                                                                                                                         
+                        # li $v0,2
                                                 s.s $f2,buckets($s5)
                                                 s.s $f4,buckets($s4)
+
+                        # mov.s $f12,$f2  # v[j]
+                        # syscall
+
+                        # li $v0,2
+                        # mov.s $f12,$f4 # v[i]
+                        # syscall
+
                                             exit7:
                                       addi $s5,$s5,-4 
                                       j forLoop5
@@ -124,6 +144,10 @@ PrintBuckets: move $s0,$zero # i=0
         la $a0, space
         syscall
 
+        li $v0,4
+        la $a0, space
+        syscall
+
             addi $s4,$s4,4
             j forLoop7
         exit8:
@@ -131,7 +155,10 @@ PrintBuckets: move $s0,$zero # i=0
        addi $s1,$s1,4
     j forLoop6
         
-exit9: j Print
+exit9: li $v0,4
+        la $a0, spaceBar
+        syscall
+j Print
 
 Print:
 move $s0,$zero
@@ -145,7 +172,7 @@ forPrint: slt $t0, $s0, $s2
         syscall
 
         li $v0,4
-        la $a0, spaceBar
+        la $a0, space
         syscall
 
         addi $s0,$s0,4
