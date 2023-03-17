@@ -15,10 +15,10 @@ or(reset_wire,reset,q[3]&q[1]);
 
 reg [31:0] one_sec_counter;
 
-always @(posedge (clk) or posedge(reset)) begin: temp1
+always @(posedge(clk) or posedge(reset)) begin: temp1
     if(reset)begin
         one_sec_counter=32'b0;
-    end
+    end 
     else begin
         if(one_sec_counter==W)begin
             one_sec_counter=32'b0;

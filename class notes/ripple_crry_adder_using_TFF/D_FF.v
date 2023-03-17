@@ -24,7 +24,7 @@ output q;
 input d, clk,reset;
 reg q; 
 
-always@(posedge reset or negedge clk)
+always@(posedge reset or negedge clk) // nededge is imp coz in posedge all reg become active at the same time and it will give opposite ordering
 begin
 	if(reset)
 		q<=1'b0;

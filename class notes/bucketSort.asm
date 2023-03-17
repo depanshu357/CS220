@@ -91,9 +91,6 @@ startInsertionSort: move $s0,$zero # i=0
                                       bne $t0,$zero,exit6
                                          swap:
 
-
- 
-
                                          l.s $f2,buckets($s4) # v[i]
                                             l.s $f4,buckets($s5)  #v[j]
                                             c.lt.s $f2,$f4
@@ -156,7 +153,7 @@ PrintBuckets: move $s0,$zero # i=0
     j forLoop6
         
 exit9: li $v0,4
-        la $a0, spaceBar
+        la $a0, space
         syscall
 j Print
 

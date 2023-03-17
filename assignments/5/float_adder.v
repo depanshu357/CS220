@@ -44,7 +44,7 @@ veda_mem uut2(clk,1'b1,1'b0,5'b00001,dataIn2,1'b1,temp);
 veda_mem uut3(clk,1'b1,1'b0,5'b00001,given_ans,1'b1,temp);
 veda_mem uut4(clk,1'b1,1'b0,5'b00001,given_ans,1'b1,temp);
 
-always @(posedge clk) begin
+initial begin
     // $monitor(match," ",ans_given," ",dataOut);
     if(exp1>exp2) begin
         diff = exp1 -exp2;
