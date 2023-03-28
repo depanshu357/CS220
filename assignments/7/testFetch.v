@@ -12,7 +12,7 @@ module testFetch;
         $dumpvars(0,testFetch);
         clk = 1;#5;
         // $monitor()
-        #240;
+        #260;
         $finish;
     end
 
