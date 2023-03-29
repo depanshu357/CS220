@@ -1,12 +1,12 @@
 `timescale 1ps/1ps
-`include "fetch.v"
+`include "decideIns.v"
 module testFetch;
     reg clk;
     initial begin
         clk = 1;
         forever #5 clk = ~clk;
     end
-    fetch uut(clk);
+    decideIns uut(clk);
     initial begin
         $dumpfile("testFetch.vcd");
         $dumpvars(0,testFetch);
