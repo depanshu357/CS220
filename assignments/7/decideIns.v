@@ -7,6 +7,7 @@ module decideIns(clk);
     output [31:0] PCnew;
     reg [31:0] PCnew;
     reg signed [31:0] ram[SIZE-1:0];
+    reg signed [31:0] mem[SIZE-1:0];
     reg [5:0] temp;
     fetch uut(clk,PC,ins);
     initial begin
@@ -126,13 +127,13 @@ module decideIns(clk);
             6'b100011 : begin
                          $display("lw");
                                         PC = PC +1; 
-                        ram[ins[15:11]] = ram[ins[20:0]];
+                        mem[ins[15:11]] <= ram[ins[20:0]];
                         $display(ram[ins[15:11]],ram[ins[20:0]]); 
             end
             6'b101011 : begin
                          $display("sw");
                         PC = PC +1; 
-                        ram[ins[20:0]] = ram[ins[15:11]];
+                        mem[ins[20:0]] <= ram[ins[15:11]];
                         $display(ram[ins[15:11]],ram[ins[20:0]]); 
 
             end
@@ -145,9 +146,9 @@ module decideIns(clk);
             end 
             6'b000101 : begin
                         $display("bne");
-                        if(ram[ins[25:21]]!=ram[ins[20:16]]) PCnew = PC + ins[5:0] +1;
-                        else PCnew = 0;
-                        PC = PC +1; 
+                        // if(ram[ins[25:21]]==ram[ins[20:16]]) PC = PC + ins[5:0] +1;
+                        // if(ram[ins[25:21]]!=ram[ins[20:16]]) PC = PC + ins[5:0] +1;
+                         PC =  PC +1; 
                         $display(PC,ins[5:0]);
 
             end
